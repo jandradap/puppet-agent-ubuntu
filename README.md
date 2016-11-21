@@ -24,9 +24,17 @@ See the examples repository for fully worked examples, including how to run a fu
 ```shell
 docker run --rm -h "test01" \
 --add-host="puppetServer.dom puppet:IP_puppetServer" \
+jorgeandrada/puppet-agent-ubuntu &
+```
+
+### Ejemplo de ejecucion con proxy:
+
+```shell
+docker run --rm -h "test01" \
+--add-host="puppetServer.dom puppet:IP_puppetServer" \
 -e "http_proxy=http://myproxy.example:8888" \
 -e "https_proxy=https://myproxy.example:8888" \
-puppet/puppet-agent-ubuntu &
+jorgeandrada/puppet-agent-ubuntu &
 ```
 
 https://github.com/puppetlabs/puppet-in-docker/tree/master/puppet-agent-ubuntu
