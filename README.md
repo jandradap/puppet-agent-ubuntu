@@ -1,9 +1,7 @@
 # puppet-agent-ubuntu
 
-```shell
-docker run --link puppet:puppet puppet/puppet-agent-ubuntu help
-```
-
+Imagen de Ubuntu con Puppet Agent para realización de pruebas.
+La imagen realiza apt-get update antes de ejecutar puppet agent.
 
 ### Ejemplo de ejecucion:
 
