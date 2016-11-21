@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Gareth Rushgrove "gareth@puppet.com"
+MAINTAINER Jorge Andrada Prieto "jandradap@gmail.com"
 
 ENV PUPPET_AGENT_VERSION="1.8.0" UBUNTU_CODENAME="xenial"
 
@@ -28,7 +28,8 @@ RUN apt-get update && \
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
-ENTRYPOINT ["/opt/puppetlabs/bin/puppet"]
-CMD ["agent", "--verbose", "--onetime", "--no-daemonize", "--summarize" ]
+
+COPY entrypoint.sh /root
+ENTRYPOINT ["/root/entrypoint.sh"]
 
 COPY Dockerfile /
