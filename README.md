@@ -23,4 +23,5 @@ docker run --rm -h "$hostnamemod-$i" --add-host="puppet.virt.cga puppet:$puppets
 
 
 
-docker run --rm -h "test01" --add-host="puppetServer.dom puppet:IP_puppetServer" puppet/puppet-agent-ubuntu &
+
+https://github.com/puppetlabs/puppet-in-docker/tree/master/puppet-agent-ubuntu
