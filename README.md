@@ -16,12 +16,10 @@ If you want to manage the host using Puppet in the image, you need to mount fold
 docker run --rm --privileged --hostname agent -v /tmp:/tmp -v /etc:/etc -v /var:/var -v /usr:/usr -v /lib64:/lib64 --link puppet:puppet puppet/puppet-agent-ubuntu
 See the examples repository for fully worked examples, including how to run a full Puppet stack using Docker Compose.
 
-docker run --rm -h "$hostnamemod-$i" --add-host="puppet.virt.cga puppet:$puppetserver" puppet/puppet-agent-alpine &
 
 
 
-
-
+docker run --rm -h "test01" --add-host="puppetServer.dom puppet:IP_puppetServer" puppet/puppet-agent-ubuntu &
 
 
 https://github.com/puppetlabs/puppet-in-docker/tree/master/puppet-agent-ubuntu
