@@ -21,6 +21,6 @@ docker run --rm -h "test01" \
 jorgeandrada/puppet-agent-ubuntu &
 ```
 
-### Info:
+### Información:
 
 https://github.com/puppetlabs/puppet-in-docker/tree/master/puppet-agent-ubuntu
