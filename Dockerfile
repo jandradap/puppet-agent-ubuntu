@@ -28,8 +28,6 @@ RUN apt-get update && \
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
-#conserva la caché a al hora de pasar puppet
-RUN apt-get update
 
 COPY entrypoint.sh /root
 ENTRYPOINT ["/root/entrypoint.sh"]
