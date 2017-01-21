@@ -1,18 +1,24 @@
 FROM ubuntu:16.04
-MAINTAINER Jorge Andrada Prieto "jandradap@gmail.com"
+
+COPY Dockerfile /
+
+ARG BUILD_DATE
+ARG VCS_REF
+ARG VERSION
 
 ENV PUPPET_AGENT_VERSION="1.8.0" UBUNTU_CODENAME="xenial"
 
-LABEL org.label-schema.vendor="Puppet" \
-      org.label-schema.url="https://github.com/puppetlabs/puppet-in-docker" \
-      org.label-schema.name="Puppet Agent (Ubuntu)" \
-      org.label-schema.license="Apache-2.0" \
-      org.label-schema.version=$PUPPET_AGENT_VERSION \
-      org.label-schema.vcs-url="https://github.com/puppetlabs/puppet-in-docker" \
-      org.label-schema.vcs-ref="a9a206f50b6c9f5885bbf263d3e1fd25ab9be199" \
-      org.label-schema.build-date="2016-11-15T10:36:43Z" \
-      org.label-schema.schema-version="1.0" \
-      com.puppet.dockerfile="/Dockerfile"
+LABEL org.label-schema.build-date=$BUILD_DATE \
+			org.label-schema.name="puppet-agent-ubuntu" \
+			org.label-schema.description="Puppet agent ubuntu" \
+			org.label-schema.url="http://andradaprieto.es" \
+			org.label-schema.vcs-ref=$VCS_REF \
+			org.label-schema.vcs-url="https://github.com/jandradap/puppet-agent-ubuntu" \
+			org.label-schema.vendor="Jorge Andrada Prieto" \
+			org.label-schema.version=$PUPPET_AGENT_VERSION \
+			org.label-schema.schema-version="1.0" \
+			maintainer="Jorge Andrada Prieto <jandradap@gmail.com>" \
+			org.label-schema.docker.cmd="docker run --rm -h "test01" --add-host="puppetServer.dom puppet:IP_puppetServer" jorgeandrada/puppet-agent-ubuntu &"
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y wget ca-certificates lsb-release && \
@@ -28,8 +34,6 @@ RUN apt-get update && \
 
 ENV PATH=/opt/puppetlabs/server/bin:/opt/puppetlabs/puppet/bin:/opt/puppetlabs/bin:$PATH
 
-
 COPY entrypoint.sh /root
-ENTRYPOINT ["/root/entrypoint.sh"]
 
-COPY Dockerfile /
+ENTRYPOINT ["/root/entrypoint.sh"]
