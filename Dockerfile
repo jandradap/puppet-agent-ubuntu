@@ -18,7 +18,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 			org.label-schema.version=$PUPPET_AGENT_VERSION \
 			org.label-schema.schema-version="1.0" \
 			maintainer="Jorge Andrada Prieto <jandradap@gmail.com>" \
-			org.label-schema.docker.cmd="docker run --rm -h "test01" --add-host="puppetServer.dom puppet:IP_puppetServer" jorgeandrada/puppet-agent-ubuntu &"
+			org.label-schema.docker.cmd="docker run --rm -h 'test01' --add-host='puppetServer.dom puppet:IP_puppetServer' jorgeandrada/puppet-agent-ubuntu &"
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y wget ca-certificates lsb-release && \
